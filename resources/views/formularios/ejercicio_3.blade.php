@@ -16,7 +16,7 @@
         <select name="recinto">
             <option value="Turrialba">Turrialba</option>
             <option value="Paraiso">Paraíso</option>
-        </select>
+        </select><br>
         <input type="submit" value="Consultar"></input>
     </form>
 @endsection

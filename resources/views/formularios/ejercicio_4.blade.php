@@ -14,7 +14,7 @@
         <select name="sexo">
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
-        </select>
+        </select><br>
         <input type="submit" value="Consultar"></input>
     </form>
 @endsection

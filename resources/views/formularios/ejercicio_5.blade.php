@@ -46,7 +46,7 @@
                 <option value="N">N</option>
                 <option value="S">S</option>
                 <option value="O">O</option>
-            </select>
+            </select><br>
             <input type="submit" value="Consultar"></input>
         </div>
     </form>

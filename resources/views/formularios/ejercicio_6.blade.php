@@ -24,7 +24,7 @@
                 <option value="Low">Bajo</option>
                 <option value="Medium">Medio</option>
                 <option value="High">Alto</option>
-        </select>
+        </select><br>
         <input type="submit" value="Consultar"></input>
     </form>
 @endsection
