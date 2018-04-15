@@ -30,13 +30,7 @@
                         {
                                 estilo="divergente";
                         }
-                        } 
-                document.final.EC.value = ec;
-                document.final.RO.value = or;
-                document.final.CA.value = ca;
-                document.final.EA.value = ea;
-                document.final.CAEC.value = caec;
-                document.final.EAOR.value = eaor;
+                        }
                 document.final.ESTILOFINAL.value = estilo;
                 }
         </script>
@@ -392,26 +386,9 @@
                 <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" onclick="calcular()" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </form>
 
-        <form name="final" action="estilo.php" method="post">
-                <input name="EC" maxlength="12" size="12" type="hidden" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input name="RO" maxlength="12" size="12" type="hidden" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <input name="CA" maxlength="12" size="12" type="hidden" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <input name="EA" maxlength="12" size="12" type="hidden" ><br>
-
-                <input type="hidden" maxlength="3" size="3" name="CAEC">&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="hidden" maxlength="3" size="3" name="EAOR">&nbsp;<br><br>
-
+        <form name="final">
                 ESTILO&nbsp;&nbsp; <input maxlength="12" size="12" name="ESTILOFINAL">
                 <br>
-                Escriba su carnet:<input type="Text" name="carnet"><br>
-                Sexo:<select name="sex" value="Sexo">
-                        <option value="f">Femenino</option>
-                        <option value="m">Masculino</option>
-                        </select><br>
-                Escoja su recinto:<select name="recinto" value="Recinto">
-                        <option value="p">Paraíso</option>
-                        <option value="t">Turrialba</option>
-                        </select><br>
-                <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font><input value="ENVIAR" type="submit">
+                <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
         </form>
 @endsection
