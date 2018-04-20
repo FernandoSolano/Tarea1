@@ -38,3 +38,5 @@ Route::get('/ejercicio_5', function () {
 Route::get('/ejercicio_6', function () {
     return view('formularios/ejercicio_6');
 })->name('ejercicio_6');
+
+Route::post('/ejercicio_6/consultar', 'RedesController@Calcular');

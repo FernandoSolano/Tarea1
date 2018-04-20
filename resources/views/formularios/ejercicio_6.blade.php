@@ -2,7 +2,8 @@
 @section('title', 'Ejercicio 6')
 @section('content')
     <h1>Ejercicio 6</h1>
-    <form>
+    <form method="POST" action="/ejercicio_6/consultar">
+        {{ csrf_field() }}
         <label for="confiabilidad">Confiabilidad:</label>
         <select name="confiabilidad">
             <option value="1">1</option>
@@ -15,16 +16,19 @@
         <input name="cantidad_enlaces" type="number"></input><br>
         <label for="capacidad">Capacidad:</label>
         <select name="capacidad">
-            <option value="Low">Baja</option>
-            <option value="Medium">Media</option>
-            <option value="High">Alta</option>
+            <option value="1">Baja</option>
+            <option value="2">Media</option>
+            <option value="3">Alta</option>
         </select><br>
         <label for="costo_enlaces">Costo de los enlaces:</label>
         <select name="costo_enlaces">
-                <option value="Low">Bajo</option>
-                <option value="Medium">Medio</option>
-                <option value="High">Alto</option>
+                <option value="1">Bajo</option>
+                <option value="2">Medio</option>
+                <option value="3">Alto</option>
         </select><br>
         <input type="submit" value="Consultar"></input>
+    </form>
+    <form name="resultado">
+            Resultado:<input name="txt_resultado" value="@if (!empty($resultado)){{ $resultado }}@endif">
     </form>
 @endsection
