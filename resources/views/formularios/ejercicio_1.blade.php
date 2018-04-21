@@ -3,35 +3,37 @@
 @section('content')
         <script language="JavaScript">
                 function calcular(){
-                ec = parseInt(document.estilo.c5.value)+parseInt(document.estilo.c9.value)+parseInt(document.estilo.c13.value)+parseInt(document.estilo.c17.value)+parseInt(document.estilo.c25.value)+parseInt(document.estilo.c29.value);
-                or = parseInt(document.estilo.c2.value)+parseInt(document.estilo.c10.value)+parseInt(document.estilo.c22.value)+parseInt(document.estilo.c26.value)+parseInt(document.estilo.c30.value)+parseInt(document.estilo.c34.value);
-                ca = parseInt(document.estilo.c7.value)+parseInt(document.estilo.c11.value)+parseInt(document.estilo.c15.value)+parseInt(document.estilo.c19.value)+parseInt(document.estilo.c31.value)+parseInt(document.estilo.c35.value);
-                ea = parseInt(document.estilo.c4.value)+parseInt(document.estilo.c12.value)+parseInt(document.estilo.c24.value)+parseInt(document.estilo.c28.value)+parseInt(document.estilo.c32.value)+parseInt(document.estilo.c36.value);
-                caec = ca-ec;
-                eaor = ea-or;	
-                if (eaor>2)
-                        {
-                        if (caec>2)
-                        {
-                                estilo="convergente";
+                        ec = parseInt(document.estilo.c5.value)+parseInt(document.estilo.c9.value)+parseInt(document.estilo.c13.value)+parseInt(document.estilo.c17.value)+parseInt(document.estilo.c25.value)+parseInt(document.estilo.c29.value);
+                        or = parseInt(document.estilo.c2.value)+parseInt(document.estilo.c10.value)+parseInt(document.estilo.c22.value)+parseInt(document.estilo.c26.value)+parseInt(document.estilo.c30.value)+parseInt(document.estilo.c34.value);
+                        ca = parseInt(document.estilo.c7.value)+parseInt(document.estilo.c11.value)+parseInt(document.estilo.c15.value)+parseInt(document.estilo.c19.value)+parseInt(document.estilo.c31.value)+parseInt(document.estilo.c35.value);
+                        ea = parseInt(document.estilo.c4.value)+parseInt(document.estilo.c12.value)+parseInt(document.estilo.c24.value)+parseInt(document.estilo.c28.value)+parseInt(document.estilo.c32.value)+parseInt(document.estilo.c36.value);
+                        caec = ca-ec;
+                        eaor = ea-or;
+                        post('/ejercicio_1/consultar/', {caec: caec, eaor: eaor});
+                }
+
+                function post(path, params, method) {
+                        method = method || "post"; // Set method to post by default if not specified.
+
+                        // The rest of this code assumes you are not using a library.
+                        // It can be made less wordy if you use one.
+                        var form = document.createElement("form");
+                        form.setAttribute("method", method);
+                        form.setAttribute("action", path);
+
+                        for(var key in params) {
+                                if(params.hasOwnProperty(key)) {
+                                var hiddenField = document.createElement("input");
+                                hiddenField.setAttribute("type", "hidden");
+                                hiddenField.setAttribute("name", key);
+                                hiddenField.setAttribute("value", params[key]);
+
+                                form.appendChild(hiddenField);
+                                }
                         }
-                        else
-                        {
-                                estilo="acomodador";
-                        } 
-                        }
-                else
-                        {
-                        if (caec>2)
-                        {
-                                estilo="asimilador";
-                        }
-                        else
-                        {
-                                estilo="divergente";
-                        }
-                        }
-                document.final.ESTILOFINAL.value = estilo;
+
+                        document.body.appendChild(form);
+                        form.submit();
                 }
         </script>
 
@@ -69,6 +71,7 @@
         <big><big><br>
         Yo aprendo...</big></big>
         <form name="estilo">
+                {{ csrf_field() }}
                 <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
                 <tbody>
                 <tr>
@@ -383,12 +386,13 @@
                 </tbody>
                 </table>
                 <br>
-                <font color="#ff0000"><font size="4"> ------------------</font></font><input value="CALCULAR" onclick="calcular()" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input value="CALCULAR" onclick="calcular()" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </form>
-
-        <form name="final">
-                ESTILO&nbsp;&nbsp; <input maxlength="12" size="12" name="ESTILOFINAL">
-                <br>
-                <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
+        <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
+        <form name="resultado">
+                Resultado:<input name="txt_resultado" value="@if (!empty($resultado)){{ $resultado }}@endif">
         </form>
+        <br>
+        <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
+        
 @endsection

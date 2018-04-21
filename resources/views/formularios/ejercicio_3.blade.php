@@ -2,7 +2,8 @@
 @section('title', 'Ejercicio 3')
 @section('content')
     <h1>Ejercicio 3</h1>
-    <form>
+    <form method="POST" action="/ejercicio_3/consultar">
+        {{ csrf_field() }}
         <label for="estilo">Estilo:</label>
         <select name="estilo">
             <option value="1">Divergente</option>
@@ -14,9 +15,12 @@
         <input name="promedio" type="number"></input><br>
         <label for="recinto">Recinto:</label>
         <select name="recinto">
-            <option value="Turrialba">Turrialba</option>
-            <option value="Paraiso">Paraíso</option>
+            <option value="1">Turrialba</option>
+            <option value="2">Paraíso</option>
         </select><br>
         <input type="submit" value="Consultar"></input>
+    </form>
+    <form name="resultado">
+        Resultado:<input name="txt_resultado" value="@if (!empty($resultado)){{ $resultado }}@endif">
     </form>
 @endsection
