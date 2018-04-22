@@ -10,7 +10,7 @@
 </head>
 <body>
     @include('/common/navbar')
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-6 offset-md-3">
         @yield('content')
     </div>
 </body>

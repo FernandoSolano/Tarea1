@@ -67,8 +67,8 @@
         palabra que menos caracteriza su estilo. Tenga cuidado de ubicar un
         número distinto al lado de cada palabra en la misma línea. </font></font></p>
 
-        <p class="western" align="justify" lang="es-ES"><font color="#ff0000"><font size="3"><b>No olvide escribir su CARNET, seleccionar género y recinto y hacer click en los botones CALCULAR, para que vea el resultado, y en el botón ENVIAR para guardarlo...  Mil gracias !</b></font></font></p>
-        <big><big><br>
+        <p class="western" align="justify" lang="es-ES"><font color="#ff0000"><font size="3"><b>Presione el botón Consultar, para mostrar el resultado...</b></font></font></p>
+        <big><big>
         Yo aprendo...</big></big>
         <form name="estilo">
                 {{ csrf_field() }}
@@ -386,13 +386,14 @@
                 </tbody>
                 </table>
                 <br>
-                <input value="CALCULAR" onclick="calcular()" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input value="Consultar" onclick="calcular()" type="button" class="btn btn-info">
         </form>
-        <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
-        <form name="resultado">
-                Resultado:<input name="txt_resultado" value="@if (!empty($resultado)){{ $resultado }}@endif">
-        </form>
-        <br>
-        <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
         
+        @if (!empty($resultado))
+                <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
+                <form name="resultado">
+                        Su estilo de aprendizaje es {{ $resultado }}
+                </form>
+                <font color="#ff0000"><font size="4"> -------------------------------------------------</font></font>
+        @endif
 @endsection
