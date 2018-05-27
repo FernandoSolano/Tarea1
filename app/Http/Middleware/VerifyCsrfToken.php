@@ -13,6 +13,5 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'http://tarea1exp.herokuapp.com/ejercicio_1/consultar'
     ];
 }
